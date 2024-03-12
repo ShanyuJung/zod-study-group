@@ -1,4 +1,5 @@
 import "./App.css";
+import { Form } from "./components/Form";
 import { Infer } from "./components/Infer";
 import { Parse } from "./components/Parse";
 import { Pokemons } from "./components/Pokemons";
@@ -10,7 +11,8 @@ function App() {
       {/* <Parse /> */}
       {/* <SafeParse /> */}
       {/* <Pokemons /> */}
-      <Infer />
+      {/* <Infer /> */}
+      <Form />
     </div>
   );
 }
