@@ -1,10 +1,32 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import App from "./App.tsx";
+import "./index.css";
+import {
+  QueryClient,
+  QueryClientConfig,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { createRoot } from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+export const clientOptions: QueryClientConfig = {
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+};
+
+export const queryClient = new QueryClient(clientOptions);
+
+const MyApp = () => (
+  <QueryClientProvider client={queryClient}>
     <App />
-  </React.StrictMode>,
-)
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>
+);
+
+const container = document.getElementById("root");
+if (container) {
+  const root = createRoot(container);
+  root.render(<MyApp />);
+}
