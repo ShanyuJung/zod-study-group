@@ -1,4 +1,5 @@
 import "./App.css";
+import { Infer } from "./components/Infer";
 import { Parse } from "./components/Parse";
 import { Pokemons } from "./components/Pokemons";
 import { SafeParse } from "./components/SafeParse";
@@ -8,7 +9,8 @@ function App() {
     <div>
       {/* <Parse /> */}
       {/* <SafeParse /> */}
-      <Pokemons />
+      {/* <Pokemons /> */}
+      <Infer />
     </div>
   );
 }
